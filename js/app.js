@@ -2,6 +2,7 @@ const TEMPLATE_PATH = "assets/instrumento_transacao_template.pdf";
 const PAGE_H = 841.92004; // altura A4 em pontos, conforme o template
 
 const FIELD_POS = {
+  sinistro: { x: 72, bottom: 512.13 },
   segurado: { x: 374, bottom: 344.0 },
   veiculo: { x: 172, bottom: 365.97 },
   chassi: { x: 382, bottom: 365.97 },
@@ -9,7 +10,7 @@ const FIELD_POS = {
   apolice: { x: 234, bottom: 402.33 },
 };
 
-const REQUIRED_IDS = ["segurado", "veiculo", "chassi", "placa", "apolice"];
+const REQUIRED_IDS = ["sinistro", "segurado", "veiculo", "chassi", "placa", "apolice"];
 
 const form = document.getElementById("termForm");
 const fillBar = document.getElementById("fillBar");
@@ -75,6 +76,7 @@ async function gerarPdf(values) {
     });
   }
 
+  draw(values.sinistro, FIELD_POS.sinistro);
   draw(values.segurado, FIELD_POS.segurado);
   draw(values.veiculo, FIELD_POS.veiculo);
   draw(values.chassi, FIELD_POS.chassi);
@@ -120,9 +122,8 @@ form.addEventListener("submit", async function (e) {
     return;
   }
 
-  const sinistro = document.getElementById("sinistro").value.trim();
-  const fileName = sinistro
-    ? `instrumento_${sinistro}.pdf`
+  const fileName = values.sinistro
+    ? `instrumento_${values.sinistro}.pdf`
     : "instrumento_preenchido.pdf";
 
   submitBtn.disabled = true;

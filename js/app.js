@@ -2,13 +2,13 @@ const TEMPLATE_PATH = "assets/instrumento_transacao_template.pdf";
 const PAGE_H = 841.92004; // altura A4 em pontos, conforme o template
 
 const FIELD_POS = {
-  sinistro: { x: 72, bottom: 512.13 },
-  segurado: { x: 374, bottom: 344.0 },
-  veiculo: { x: 172, bottom: 365.97 },
-  chassi: { x: 382, bottom: 365.97 },
-  placa: { x: 74, bottom: 402.33 },
-  apolice: { x: 234, bottom: 402.33 },
-  valor: { x: 496, bottom: 653.61 },
+  sinistro: { x: 72,  bottom: 511.04 },
+  segurado: { x: 374, bottom: 342.92 },
+  veiculo:  { x: 172, bottom: 364.88 },
+  chassi:   { x: 382, bottom: 364.88 },
+  placa:    { x: 77,  bottom: 401.24 },
+  apolice:  { x: 234, bottom: 401.24 },
+  valor:    { x: 490, bottom: 652.52 },
 };
 
 const REQUIRED_IDS = ["sinistro", "segurado", "veiculo", "chassi", "placa", "apolice", "valor"];

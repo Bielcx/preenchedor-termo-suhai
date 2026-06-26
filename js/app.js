@@ -8,9 +8,10 @@ const FIELD_POS = {
   chassi: { x: 382, bottom: 365.97 },
   placa: { x: 74, bottom: 402.33 },
   apolice: { x: 234, bottom: 402.33 },
+  valor: { x: 496, bottom: 653.61 },
 };
 
-const REQUIRED_IDS = ["sinistro", "segurado", "veiculo", "chassi", "placa", "apolice"];
+const REQUIRED_IDS = ["sinistro", "segurado", "veiculo", "chassi", "placa", "apolice", "valor"];
 
 const form = document.getElementById("termForm");
 const fillBar = document.getElementById("fillBar");
@@ -82,6 +83,7 @@ async function gerarPdf(values) {
   draw(values.chassi, FIELD_POS.chassi);
   draw(values.placa, FIELD_POS.placa);
   draw(values.apolice, FIELD_POS.apolice);
+  draw(values.valor, FIELD_POS.valor);
 
   const outBytes = await pdfDoc.save();
   return new Blob([outBytes], { type: "application/pdf" });
